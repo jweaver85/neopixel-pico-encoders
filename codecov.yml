@@ -2,7 +2,7 @@ ignore:
   - "lib/timer/"  # ignore folders and all its contents
   - "lib/encoder/"  # ignore folders and all its contents
   - "lib/microphone/"  # ignore folders and all its contents
-  - "**/__init__.py"         # glob accepted
+#  - "**/__init__.py"         # glob accepted
 
 coverage:
   status:
