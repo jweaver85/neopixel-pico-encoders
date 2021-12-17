@@ -1,12 +1,13 @@
 from lib.utils import walk, render
 
-COLOR01 = (171,103,164)
-COLOR02 = (121,132,160)
-COLOR03 = (105,135,156)
-COLOR04 = (203,53,98)
-COLOR05 = (168,62,184)
+COLOR01 = (171, 103, 164)
+COLOR02 = (121, 132, 160)
+COLOR03 = (105, 135, 156)
+COLOR04 = (203, 53, 98)
+COLOR05 = (168, 62, 184)
 
 colors = [COLOR01, COLOR02, COLOR03, COLOR04, COLOR05]
+
 
 def run(options):
     while len(options.buffer) < options.num_pixels:

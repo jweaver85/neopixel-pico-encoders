@@ -1,7 +1,9 @@
-from lib.utils import translate, render, randColor
+from lib.utils import translate, randColor
+
 
 def render(index, options):
     options.pixels[index] = options.colors[index]
+
 
 def run(options):
     while len(options.colors) < options.num_pixels:

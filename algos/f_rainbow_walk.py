@@ -11,6 +11,7 @@ COLOR08 = (0, 0, 255)
 COLOR09 = (157, 0, 255)
 COLOR10 = (255, 0, 200)
 
+
 def run(options):
     if len(options.buffer) == 0:
         walk(COLOR01, COLOR02, options)
@@ -23,7 +24,7 @@ def run(options):
         walk(COLOR08, COLOR09, options)
         walk(COLOR09, COLOR10, options)
         walk(COLOR10, COLOR01, options)
-        
+
     popped = options.buffer.pop()
     options.colors.push(popped)
     options.buffer.push(popped)

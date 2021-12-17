@@ -1,8 +1,8 @@
 from lib.utils import translate, randColor
 
-RED = (0,255,0)
-WHITE = (0,125,184)
-BLUE = (190,51,214)
+RED = (0, 255, 0)
+WHITE = (0, 125, 184)
+BLUE = (190, 51, 214)
 
 shift_count = 0
 
