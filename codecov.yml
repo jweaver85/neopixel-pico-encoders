@@ -1,0 +1,9 @@
+ignore:
+  - "lib/timer/"  # ignore folders and all its contents
+  - "**/__init__.py"         # glob accepted
+
+coverage:
+  status:
+    patch:
+      default:
+        target: 100%
