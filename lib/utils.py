@@ -1,4 +1,5 @@
 import random
+import time
 
 
 def translate(start, end, stepSize):
@@ -32,6 +33,7 @@ def render(options):
         options.pixels[i] = c
         i = i+1
     options.pixels.write()
+    time.sleep(options.sleepytime)
 
 
 def rand(maximum=255):

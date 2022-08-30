@@ -1,5 +1,4 @@
 from lib.utils import randColor, rand, render
-from time import sleep
 
 """
 idea:
@@ -34,13 +33,13 @@ states:
 
 
 """
-chosen_colors = []
+chosen_colors = set()
 
 
 def pick_colors_and_set(options):
-    num_seeds = 4
+    num_seeds = 4  # TODO: make this configurable
     for _ in range(num_seeds):
-        chosen_colors.append(randColor())
+        chosen_colors.add(randColor())
 
     for c in chosen_colors:
         index = rand(options.num_pixels)
@@ -48,6 +47,14 @@ def pick_colors_and_set(options):
         options.colors[index] = c
 
     render(options)
+    
+def calc_sleep(options):
+    if options.step > 5:
+        options.step = 5
+    float_step = float(options.step)
+    sleep_modifier = float(.01)  # (this is why we need sleep)
+    value = float_step * sleep_modifier
+    return value
 
 
 def run(options):
@@ -79,6 +86,7 @@ def run(options):
         i = i + 1
     if not updated:
         chosen_colors.clear()
+        calculated_sleep = calc_sleep(options)
+        options.sleepytime = calculated_sleep
 
     render(options)
-    sleep(.2)

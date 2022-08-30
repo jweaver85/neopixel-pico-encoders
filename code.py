@@ -26,7 +26,7 @@ num_pixels = 60
 options = Options(
     num_pixels,  # pixels in this LED strip
     1,  # step size for walks
-    0.1,  # brightness
+    0.01,  # brightness
     0.01,  # sleepytime (unused?)
     neopixel.NeoPixel(board.GP0, num_pixels),  # neopixel object
     queue([], num_pixels),  # colors to be rendered (buffer 1)
@@ -62,6 +62,7 @@ def updateAlgorithm():
 
         if algo_index != new_algo_index:
             options.buffer.clear()
+            options.sleepytime = 0
 
         algo_index = new_algo_index
 
@@ -92,6 +93,8 @@ def updateBrightness():
             brightness_enc_prev = position
             if calculated > 0:
                 options.brightness = calculated
+            if calculated < 0:
+                options.brightness = .01
     return options.brightness
 
 
