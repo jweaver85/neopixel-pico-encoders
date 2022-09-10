@@ -43,4 +43,7 @@ def rand(maximum=255):
 def randColor():
     return (rand(), rand(), rand())
 
+def randSelect(items: list):
+    return items[rand(len(items))]
+
 
