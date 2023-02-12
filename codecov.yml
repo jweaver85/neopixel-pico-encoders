@@ -1,15 +1,10 @@
-ignore:
-  - "lib/timer/"  # ignore folders and all its contents
-  - "lib/encoder/"  # ignore folders and all its contents
-  - "lib/microphone/"  # ignore folders and all its contents
-#  - "**/__init__.py"         # glob accepted
-
 coverage:
   status:
     patch:
       default:
-        target: 100%
-  comment:
-    layout: "reach, diff, flags, files"
-    behavior: default
-    require_changes: false
+        target: 100.0
+ignore:
+  - ^lib/timer/.*
+  - (?s:.*/__init__\.py.*)\Z
+  - ^lib/encoder/.*  # ignore folders and all its contents
+  - ^lib/microphone/.*  # ignore folders and all its contents
