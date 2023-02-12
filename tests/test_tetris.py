@@ -19,7 +19,7 @@ class TestTetris(TestCase):
         for i in range(options.num_pixels):
             run(options)
             self.assertEqual(len(options.colors), options.num_pixels)
-            self.assertEqual(mock_render.call_count, options.num_pixels)
+            self.assertEqual(mock_render.call_count, 1)
             options.pixels.write.assert_called_once()
             options.pixels.reset_mock()
             mock_render.reset_mock()
