@@ -1,5 +1,3 @@
-from unittest import TestCase
-
 from mock import patch
 
 from algos.aaa_tetris import run

@@ -1,4 +1,5 @@
-from lib.utils import randSelect, render
+import time
+from lib.utils import rand, randSelect, render
 
 COLOR01 = (255, 0, 0)
 COLOR02 = (255, 85, 0)
@@ -25,25 +26,52 @@ colors = [
 ]
 
 
-def get_index(item):
-    global colors
+def calc_sleep(options):
+    if options.step > 5:
+        options.step = 5
+    float_step = float(options.step)
+    sleep_modifier = float(.01)  # (this is why we need sleep)
+    value = float_step * sleep_modifier
+    return value
+
+
+def get_index(colors, item: tuple):
     i = 0
     while i < len(colors):
         if colors[i] == item:
             return i
         i += 1
 
+    # we didn't find the item, so pick a random index to seed
+    return rand(maximum=len(colors))
+
 
 def run(options):
     global colors
-    while len(options.colors) < options.num_pixels:
-        options.colors.push(randSelect(colors))
+
+    if len(options.colors) < options.num_pixels:
+        options.colors.clear()
+        options.pixels.fill((0, 0, 0))
+        options.pixels.write()
+        while len(options.colors) < options.num_pixels:
+            rand_c = randSelect(colors)
+            print(f'random color: {rand_c}')
+            options.colors.push(rand_c)
 
     i = 0
     while i < options.num_pixels:
         strand_color = options.colors[i]
-        prev_val = get_index(strand_color)
+        # print(f'strand_color: {strand_color}')
+        prev_val = get_index(colors, strand_color)
+        # print(f'prev_index: {prev_val}')
         next_val = (prev_val + 1) % len(colors)
+        # print(f'next_index: {next_val}')
+        # print(f'next_color: {colors[next_val]}')
         options.colors[i] = colors[next_val]
         i += 1
     render(options)
+    calculated_sleep = calc_sleep(options)
+    options.sleepytime = calculated_sleep
+
+
+

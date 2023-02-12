@@ -26,7 +26,7 @@ def create_options(
 
 
 @patch("code.neopixel")
-@patch("digitalio")
+# @patch("digitalio")
 @patch("rotaryio")
 @patch("analogio")
 class BaseTestCase:
