@@ -1,2 +1,6 @@
 [run]
-omit = tests/* lib/encoder/* lib/microphone/* lib/timer/*
+omit =
+    tests/*
+    lib/encoder/*
+    lib/microphone/*
+    lib/timer/*
