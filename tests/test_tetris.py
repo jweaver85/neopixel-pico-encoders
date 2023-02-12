@@ -1,12 +1,13 @@
+from unittest import TestCase
+
 from mock import patch
 
 from algos.aaa_tetris import run
 
 from .test_utils import create_options
-from .testing_utils import BaseTestCase
 
 
-class TestTetris(BaseTestCase):
+class TestTetris(TestCase):
 
     @patch('algos.aaa_tetris.render')
     def test_tetris(self, mock_render):
