@@ -1,6 +1,6 @@
-from mock import Mock
+from mock import Mock, patch
 
-from lib import Options
+from lib.options import Options
 from lib.queue import queue
 
 
@@ -23,3 +23,11 @@ def create_options(
         algorithm,  # initial color effect to start TODO: move this to onboard storage
         False  # debug mode (for logging purposes
     )
+
+
+@patch("code.neopixel")
+@patch("digitalio")
+@patch("rotaryio")
+@patch("analogio")
+class BaseTestCase:
+    pass
