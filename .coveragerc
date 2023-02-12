@@ -1,0 +1,7 @@
+[run]
+omit =
+    tests/*
+    lib/encoder/*
+    lib/microphone/*
+    lib/timer/*
+    code.py
