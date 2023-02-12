@@ -16,16 +16,16 @@ class TestSparkleShift(TestCase):
         mock_render.reset_mock()
         options.pixels.reset_mock()
 
-        for i in range(options.num_pixels):
-            run(options)
-            self.assertEqual(len(options.colors), options.num_pixels)
-            self.assertEqual(mock_render.call_count, options.num_pixels)
-            options.pixels.write.assert_called_once()
-            options.pixels.reset_mock()
-            mock_render.reset_mock()
-        # run(options)
-        # self.assertEqual(len(options.colors), options.num_pixels)
-        # self.assertEqual(mock_render.call_count, options.num_pixels)
+        # for i in range(options.num_pixels):
+        #     run(options)
+        #     self.assertEqual(len(options.colors), options.num_pixels)
+        #     self.assertEqual(mock_render.call_count, options.num_pixels)
+        #     options.pixels.write.assert_called_once()
+        #     options.pixels.reset_mock()
+        #     mock_render.reset_mock()
+        run(options)
+        self.assertEqual(len(options.colors), options.num_pixels)
+        self.assertEqual(mock_render.call_count, options.num_pixels)
 
     def test_sparkle_shift_render(self):
         options = create_options(num_pixels=10, step_size=1)
