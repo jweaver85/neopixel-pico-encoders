@@ -4,3 +4,4 @@ omit =
     lib/encoder/*
     lib/microphone/*
     lib/timer/*
+    code.py
